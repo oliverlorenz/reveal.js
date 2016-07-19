@@ -25,59 +25,224 @@
 		<div class="reveal">
 			<div class="slides">
 				<section data-markdown data-separator-notes="^Note:">
-          # Node.js on embedded hardware
-          Note:
-          * bla
+# Node.js on embedded hardware
+Note:
+* Nach der kleinen Theoriestunde machen wir jetzt mal etwas praktisches und schauen uns mal an wie sich denn Node.js und Hardware vereinen lassen, oder wie sie sich vereinen lassen
         </section>
         <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-          ## Two worlds
+## Two worlds
+Note:
+* Irgendwie prallen hier ja zwei welten aufeinander. JS mit seinem neuen Fancy scheiß und die Embedded Welt, die aus der Sicht eines Node.js Entwicklers eher eine Welt ist, mit der man mit der gewohnten Sprache eher nicht hinkommt
+* Und trotzdem zeichnet sich der Trend ab, dass sich diese Welten nach und nach aufgrund ihrer spezifischen Vorteile annähern
         </section>
         <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-          ## NodeJS
-          Note:
-          * stärken von node js
+## Node.js
+
+
+### JavaScript is in wide use
+
+Note:
+* Javascript findet immer mehr Verbreitung
+* NodeJS ist standardisiert und gut dokumentiert
+* Ich glaube jeder von uns hat schon mal eine GUI gebaut und dabei JS genutzt
+
+
+![](https://pbs.twimg.com/media/BX2yrG8CUAAA66K.png:medium)
+
+Note:
+* Das sieht man auch an den Statistiken bei Github
+
+
+### high performance
+
+Note:
+* Non-Blocking
+* Chrome V8 is ähnlich schnell wie C/C++!
+
+
+### Large ecosystem and package management system
+
+Note:
+* Für jeden scheiß gibt es schon ein projekt
+
         </section>
         <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-          ## IoT Hardware
-          Note:
-          * stärken von IoT Hardware
+## Embedded Hardware
+
+elektronischen Rechner
+
+Überwachungs-, Steuerungs- oder Regelfunktionen
+
+Daten- bzw. Signalverarbeitung
+
+Note:
+Der Ausdruck eingebettetes System [...] bezeichnet einen elektronischen Rechner oder auch Computer, der in einen technischen Kontext eingebunden (eingebettet) ist. Dabei übernimmt der Rechner entweder Überwachungs-, Steuerungs- oder Regelfunktionen oder ist für eine Form der Daten- bzw. Signalverarbeitung zuständig, beispielsweise beim Ver- bzw. Entschlüsseln, Codieren bzw. Decodieren oder Filtern.
+
+
+### Small devices
+### big power
+### Energy efficient
+
+
+### perfect fit
+
+</section>
+<section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+## Two Worlds
+
+Note:
+* Und so kommen wir wieder zu den Zwei Welten
+* Alle denken jetzt wieder: Jetzt sagt er gleich das Schlüsselwort: Raspberry Pi
+
+
+## Raspberry Pi
+
+
+# No!
+
+Note:
+* Aber Nein!
+* Natürlich kann man das ganze auch mit einem Raspberry Pi machen, aber man hat es dann quasi auch mit einem "Full-Stack" Linux zu tun
+* Ich möchte auf den Intel Galileo eingehen
+
+
+## Intel Galileo Gen 2
+
+ ![Specs](//upload.wikimedia.org/wikipedia/commons/f/f8/IntelGalileoGen2.png)
+
+
+## [Specs](http://ark.intel.com/de/products/83137/Intel-Galileo-Gen-2-Board)
+
+
+## CPU
+#### Intel Quark™ SoC X1000
+  32-Bit Intel Pentium
+
+  speeds up to 400 MHz
+
+  256 MB RAM
+
+  microSD slot
+
+
+## GPIO
+  12 GPIOs
+
+  3.3 / 5V Out
+
+  Arduino Uno R3 shield compatible
+
+
+## Energy
+  12V PoE
+
+  7 - 12V
+
+
+## Connectivity
+100Mbit Ethernet
+
+USB Client / Host
+
+Note:
+* Nicht der neuste Scheiß, aber gut abgestimmt
+
+## [Full Specs](http://www.intel.com/content/www/us/en/do-it-yourself/galileo-maker-quark-board.html)
         </section>
         <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-          ## Intel Galileo Gen 2
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/2000px-Intel-logo.svg.png)
+
+Note:
+* Das Intel Galileo Gen 2
+* Intel hat einiges Richtig gemacht
+* Es ist ein Arduino-zertifiziertes Board, welches gut für IoT-Einsteiger geeignet ist.
 
 
-          <img src="//upload.wikimedia.org/wikipedia/commons/f/f8/IntelGalileoGen2.png" />
+### Arduino
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/1280px-Arduino_Logo.svg.png)
+
+Note:
+* Dürfte den meinsten ein Begriff sein
+* Man kann garnicht abschätzen, wie diese Platform IoT vorangebracht hat
+* Bringt den Vorteil, dass viel aus der Arduino-Welt übernommen werden kann
 
 
-          * 80€
-          * 400 MHz
-          * 512MB RAM???
+## ecosystem
 
-          Intel
-
-
-          Arduino
+Note:
+* Durch diesen Fakt erweitert Intel seine "Dokumentation" unglaublich
+* Es ist halt nicht nur die Hardware,
+* sondern das "drumherum"
 
 
-          Intel XDK
+### easy to use
+Intel XDK IoT Edition
+
+a lot of examples
+
+Yocto-Linux
+
+
+### Grove Sensor Kit
+![](http://mlm-s2-p.mlstatic.com/grove-starter-kit-para-arduino-base-shield-incluida-sensores-18600-MLM20156810707_092014-O.jpg)
+
+Note:
+* Groove Sensor Kit
+* Bringt ein shield und einige aktoren und sensoren mit
+* arduino compatible
+
+
+### IoT with Node.JS
+OUT OF THE BOX
+
+Note:
+* Intel besetzt eine Nische, die sonst noc keiner Inne hält
+* Ide holt den User gut ab und verhilft einem schnell zu ergebnissen
         </section>
         <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-          Linux
+# Working with
 
 
-          NodeJS
+## Linux
+Yocto 1.4 Poky
+
+Note:
+* Yocto 1.4 Poky
+* Ist ein minimal linux, komplett open source
 
 
-          Debugger
+## Node.js
+
+0.10.38
+
+Note:
+* Wird standardmäßig mit 0.10.38 ausgeliefert
+* kann geupdatet werden
 
 
-          Deployment
+## Development workflow
+
+Note:
+* Deploy Daemon
         </section>
         <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-          ## Beispiel
+          ## Demo
+        </section>
+        <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+## Summary
 
+Note:
+* Es gibt noch Probleme
+* Ich glaube wir haben in den letzten Monaten große Fortschritte gemacht
+* Dank Arduino und der Maker-Szene
+* Es gibt erste Produke die diese Nische abdecken, wir müssen was daraus machen
+* Ich hoffe, dass der Intel Galileo nur der anfang ist
+* Ich wünsche mir z.B. noch NodeJS-On-A-Chip
+        </section>
+        <section data-markdown data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+          ## Thanks
 
-          Aufbau
+          Questions?
         </section>
       </div>
 		</div>
